@@ -28,6 +28,9 @@ SELECT tab.*
         "IBAN" varchar2(20) PATH 'CdtrAcct/Id/IBAN',
         "BIC" varchar2(12)  PATH 'CdtrAgt/FinInstnId/BIC'
       )tab; commit;
+ exception 
+    when others then
+     dbms_output.put_line('ERROR');
 end;
 
  dbms_output.put_line('success2');
