@@ -88,9 +88,7 @@ if l_check1=0 or l_check2=0 then
  
  
  --Is l_ccy1 in CCY1 column?:
-   Select count(*) into n_count 
-   from CYTMS_RATES
-   Where BRANCH_CODE=p_branch_code AND CCY1=p_ccy1 AND rate_type='STANDARD';
+  n_count:=kleardo_check_1_currency(p_branch_code,'CCY1',p_ccy1);
   if n_count > 0 then
     -- l_ccy1 is in CCY1 column:
     -- get the  l_ccy2_temp
@@ -125,9 +123,7 @@ if l_check1=0 or l_check2=0 then
   end if;
       
   --Is l_ccy1 in CCY2 column?:
-     Select count(*) into n_count 
-   from CYTMS_RATES
-   Where BRANCH_CODE=p_branch_code AND CCY2=p_ccy1 AND rate_type='STANDARD';
+    n_count:=kleardo_check_1_currency(p_branch_code,'CCY2',p_ccy1);
     if n_count > 0 then
     -- l_ccy1 is in CCY2 column
     -- get l_ccy2_temp
