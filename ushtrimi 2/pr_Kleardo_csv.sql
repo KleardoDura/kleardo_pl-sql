@@ -47,7 +47,9 @@ begin
          insert into KLEARDO_CURRENCY(source_currency,target_currency,exchange_rate,effective_date)
          values (l_source_currency,l_target_currency,l_exchange_rate,l_effective_date);
          commit;
-
+  exception 
+    when others then
+     dbms_output.put_line('ERROR');
 end;
 
 
